@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <!--<mirrors>-->
+        <!--<mirror>-->
+            <!--<mirrorOf>*</mirrorOf>-->
+            <!--&lt;!&ndash;<url>http://127.0.0.1:8081/nexus/content/groups/public</url>&ndash;&gt;-->
+            <!--<url>${NOCTEST}</url>-->
+            <!--<id>osenexus</id>-->
+        <!--</mirror>-->
+    <!--</mirrors>-->
+    
+     <proxies>
+    
+    <proxy>
+      <id>optional</id>
+      <active>true</active>
+      <protocol>https</protocol>
+      <host>10.101.32.101</host>
+      <port>443</port>
+      <nonProxyHosts></nonProxyHosts>
+    </proxy>
+   
+  </proxies>
+    
+     <mirrors>
+       <mirror>
+          <id>nexus</id>
+              <mirrorOf>*</mirrorOf>
+              <url>https://repo1.maven.org/maven2/</url>
+       </mirror>
+   </mirrors>
+  
+    <!--
+    <mirrors>
+       <mirror>
+          <id>nexus</id>
+              <mirrorOf>*</mirrorOf>
+              <url>https://10.101.41.10/nexus/content/groups/public</url>
+       </mirror>
+   </mirrors>
+     -->
+    <profiles>
+        <profile>
+            <id>openshift</id>
+            <activation>
+                <property>
+                    <name>openshift</name>
+                    <value/>
+                </property>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>nexus-repository</id>
+                    <url>${OSE_NEXUS_URL}</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>nexus-plugin-repository</id>
+                    <url>${OSE_NEXUS_URL}</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>openshift</activeProfile>
+    </activeProfiles>
+</settings>
