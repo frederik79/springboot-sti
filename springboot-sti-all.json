@@ -36,12 +36,12 @@
             "source": {
                "type": "Git",
                "git": {
-                  "uri": "https://github.com/frederik79/springboot-sti.git"
+                  "uri": "https://github.com/frederik79/springboot-sti.git",
  		  "httpsProxy": "https://10.101.32.101:443",
                   "httpProxy": "https://10.101.32.101:443",
                   "ref": "master"
                },
-               "contextDir": "spring-boot/springboot-sti"
+               "contextDir": ""
             },
             "strategy": {
                "type": "Docker",
