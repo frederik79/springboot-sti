@@ -17,7 +17,7 @@
       <id>optional</id>
       <active>true</active>
       <protocol>https</protocol>
-      <host>10.101.32.101</host>
+      <host>10.101.1.101</host>
       <port>443</port>
       <nonProxyHosts></nonProxyHosts>
     </proxy>
